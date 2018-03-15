@@ -115,6 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="exampleMain.c" />
+    <ClCompile Include="TrainAndTest.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IrisData.h" />
+    <ClInclude Include="MLCoursework.h" />
+    <ClInclude Include="TrainAndTest.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
