@@ -40,7 +40,6 @@ int  train( double **trainingSamples, char *trainingLabels, int numSamples, int 
     }
     
     //this is a silly trivial train()_ function
-    fprintf(stdout,"no ML algorithm implemented yet\n");
     
     //make a simple copy of the data we are being passed but don't do anything with it
     //I'm just giving you this for the sake of people less familiar with pointers etc.
@@ -58,7 +57,6 @@ int  train( double **trainingSamples, char *trainingLabels, int numSamples, int 
                 myModel[index][feature] = trainingSamples[index][feature];
             }
         }
-        fprintf(stdout,"data stored locally \n");
      }
     return returnval;
 }
@@ -77,10 +75,8 @@ char  predictLabel(double *sample, int numFeatures)
 	double compare[NUM_FEATURES];
 
 
-
 	for (i = 0; i < NUM_TRAINING_SAMPLES; i++) //going through row by row of training set
 	{
-		printf("start i loop\n ");
 		for (n = 0; n < NUM_FEATURES;) //going thorugh column by column and puttting in a new array 
 		{
 			diffx = myModel[i][n] - sample[n];
@@ -101,19 +97,14 @@ char  predictLabel(double *sample, int numFeatures)
 		dist = diffx + diffy + diffz + difft;
 
 		finaldist = sqrt(dist);
-		printf("FINALDIST %lf ", finaldist);
 		
 		if (finaldist < currentShortest)
 		{
-			
 			currentShortest = finaldist;
 			closestNeighborIndex = i;
-			printf("closest neighbor updated");
-
 		}
 	}
 
 	prediction = myModelLabels[closestNeighborIndex];
-	printf("___________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
 	return prediction;
 }
